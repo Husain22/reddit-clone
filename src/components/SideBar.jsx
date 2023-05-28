@@ -1,5 +1,11 @@
+import { Subreddits } from ".";
 function SideBar() {
-  return <div>SideBar</div>;
+  return (
+    <aside className="flex flex-col bg-white items-center p-2">
+      <h2 className="text-lg my-4">Subreddits</h2>
+      <Subreddits />
+    </aside>
+  );
 }
 
 export default SideBar;
