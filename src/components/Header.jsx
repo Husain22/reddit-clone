@@ -19,6 +19,7 @@ function Header() {
         </h1>
       </div>
       <Search />
+      <div />
       <div className="sm:hidden hover:cursor-pointer" onClick={toggleSidebar}>
         <MdMenu size={30} color="#3d5af1" />
       </div>

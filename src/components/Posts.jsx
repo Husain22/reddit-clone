@@ -1,5 +1,10 @@
+import { Post } from ".";
 function Posts() {
-  return <div>Posts</div>;
+  return (
+    <div className="grow">
+      <Post />
+    </div>
+  );
 }
 
 export default Posts;

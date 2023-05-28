@@ -5,3 +5,5 @@ export { default as Posts } from "./Posts";
 export { default as SideBar } from "./SideBar";
 export { default as Subreddit } from "./Subreddit";
 export { default as Subreddits } from "./Subreddits";
+export { default as Comments } from "./Comments";
+export { default as Comment } from "./Comment";
