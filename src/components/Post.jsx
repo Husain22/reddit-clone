@@ -9,7 +9,7 @@ function Post({ title, num_comments, image, author, score, time, comments }) {
   const toggleComments = () => {
     setIsOpen(!isOpen);
   };
-  console.log(comments);
+
   return (
     <div className="shadow-lg flex p-6">
       <div className="flex flex-col items-center">
@@ -31,7 +31,7 @@ function Post({ title, num_comments, image, author, score, time, comments }) {
         <h2 className="text-xl">{title}</h2>
         <img
           src={
-            image !== "self"
+            image
               ? image
               : "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
           }

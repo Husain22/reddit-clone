@@ -16,12 +16,12 @@ function Comments({ comments }) {
 
   return (
     <div className="flex flex-col my-2">
-      {data?.map((comment, index) => (
+      {data?.[1]?.data?.children?.map((comment, index) => (
         <Comment
           key={index}
-          author={comment.author}
-          body={comment.body}
-          time={moment(comment.created_utc * 1000).fromNow()}
+          author={comment.data.author}
+          body={comment.data.body}
+          time={moment(comment.data.created_utc * 1000).fromNow()}
         />
       ))}
     </div>

@@ -16,8 +16,6 @@ function Posts() {
     return <div>Error: {error.message}</div>;
   }
 
-  console.log(data);
-
   return (
     <div className="grow">
       {data?.data?.children?.map((post, index) => (
@@ -27,7 +25,7 @@ function Posts() {
           num_comments={post.data.num_comments}
           comments={post.data.permalink}
           author={post.data.author}
-          image={post.data.thumbnail}
+          image={post.data.url}
           score={post.data.score}
           time={moment(post.data.created_utc * 1000).fromNow()}
         />

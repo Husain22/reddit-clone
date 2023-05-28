@@ -15,7 +15,7 @@ function Subreddits() {
   }
 
   return (
-    <ul>
+    <ul className="w-full">
       {data?.data?.children?.map((subreddit, index) => (
         <Subreddit
           key={index}

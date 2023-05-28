@@ -6,7 +6,7 @@ function App() {
       <Header />
       <main className="flex justify-between p-4 mt-4">
         <Posts />
-        <div className="hidden sm:flex shadow-lg ml-4">
+        <div className="hidden sm:flex shadow-lg ml-4 md:min-w-[25%] w-fit h-fit">
           <SideBar />
         </div>
       </main>
