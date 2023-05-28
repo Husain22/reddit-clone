@@ -3,43 +3,55 @@ import { ImArrowUp, ImArrowDown } from "react-icons/im";
 import { BiComment } from "react-icons/bi";
 import Comments from "./Comments";
 
-function Post() {
+function Post({ title, num_comments, image, author, score, time, comments }) {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [like, setLike] = useState("text-gray-700");
   const toggleComments = () => {
     setIsOpen(!isOpen);
   };
-
+  console.log(comments);
   return (
     <div className="shadow-lg flex p-6">
-      <div className="flex flex-col">
-        <ImArrowUp />
-        <span>14</span>
-        <ImArrowDown />
+      <div className="flex flex-col items-center">
+        <ImArrowUp
+          onClick={() => setLike("text-green-500")}
+          className={`${
+            like == "text-green-500" ? like : "text-gray-400"
+          } hover:bg-gray-200 hover:cursor-pointer p-1 h-6 w-6 hover:text-green-500`}
+        />
+        <span className={like}>{score}</span>
+        <ImArrowDown
+          onClick={() => setLike("text-red-500")}
+          className={`${
+            like == "text-red-500" ? like : "text-gray-400"
+          } hover:bg-gray-200 hover:cursor-pointer p-1 h-6 w-6 hover:text-red-500`}
+        />
       </div>
       <div className="ml-6 grow">
-        <h2 className="text-xl">
-          Amazing performance at Cannes by Alina Baikova from Ukraine.
-        </h2>
+        <h2 className="text-xl">{title}</h2>
         <img
-          src="https://i.redd.it/f0bkw28y1h2b1.png"
+          src={
+            image !== "self"
+              ? image
+              : "https://images.unsplash.com/photo-1628155930542-3c7a64e2c833?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+          }
           className="my-4 w-full"
         />
         <hr />
         <div className="flex items-center justify-between mt-4 mx-4">
-          <span className="text-blue">esberat</span>
-          <span className="text-gray-600">13 hours ago</span>
+          <span className="text-blue">{author}</span>
+          <span className="text-gray-600">{time}</span>
           <span className="flex items-center">
             <BiComment
               color="blue"
               className="mr-2 hover:cursor-pointer hover:bg-gray-100 rounded w-8 h-8 p-1"
               onClick={toggleComments}
             />
-            <span className="text-gray-600">1.3k</span>
+            <span className="text-gray-600">{num_comments}</span>
           </span>
         </div>
 
-        {isOpen && <Comments />}
+        {isOpen && <Comments comments={comments} />}
       </div>
     </div>
   );

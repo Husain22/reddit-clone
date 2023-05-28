@@ -1,8 +1,29 @@
 import { Comment } from ".";
-function Comments() {
+import useAxios from "../hooks/useAxios";
+import moment from "moment";
+function Comments({ comments }) {
+  const { data, error, isLoading } = useAxios(
+    `https://www.reddit.com/${comments}.json`
+  );
+
+  if (isLoading) {
+    return <div>Loading comments...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
   return (
     <div className="flex flex-col my-2">
-      <Comment />
+      {data?.map((comment, index) => (
+        <Comment
+          key={index}
+          author={comment.author}
+          body={comment.body}
+          time={moment(comment.created_utc * 1000).fromNow()}
+        />
+      ))}
     </div>
   );
 }

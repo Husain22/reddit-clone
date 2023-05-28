@@ -1,6 +1,6 @@
 function Comment() {
   return (
-    <div className="flex flex-col hover:shadow-lg bg-lightGrey p-4">
+    <div className="flex flex-col hover:shadow-lg bg-lightGrey p-4 my-2">
       <div className="flex items-center justify-between px-4 mb-4">
         <span className="text-blue">CalculatingLao</span>
         <span className="text-gray-600">7 days ago</span>
