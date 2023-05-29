@@ -7,7 +7,7 @@ function Subreddits() {
   );
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p></p>;
   }
 
   if (error) {

@@ -1,12 +1,22 @@
 import useAxios from "../hooks/useAxios";
 import moment from "moment";
+import { useParams } from "react-router-dom";
 
 import { Post } from ".";
 
+let url = "";
 function Posts() {
-  const { data, error, isLoading } = useAxios(
-    "https://www.reddit.com/r/Home.json"
-  );
+  const { name, query } = useParams();
+
+  if (name && !query) {
+    url = `https://www.reddit.com/r/${name}.json`;
+  } else if (!name && !query) {
+    url = "https://www.reddit.com/r/Home.json";
+  } else {
+    url = `https://www.reddit.com/search.json?q=${query}`;
+  }
+
+  const { data, error, isLoading } = useAxios(url);
 
   if (isLoading) {
     return <div>Loading posts...</div>;

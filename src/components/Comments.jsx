@@ -1,13 +1,24 @@
 import { Comment } from ".";
 import useAxios from "../hooks/useAxios";
 import moment from "moment";
+
+const dump = [1, 2, 3, 4];
 function Comments({ comments }) {
   const { data, error, isLoading } = useAxios(
     `https://www.reddit.com/${comments}.json`
   );
 
   if (isLoading) {
-    return <div>Loading comments...</div>;
+    return (
+      <>
+        {dump.map((_, i) => (
+          <div
+            key={i}
+            className="w-full bg-gray-100 animate-pulse h-4 rounded my-2"
+          />
+        ))}
+      </>
+    );
   }
 
   if (error) {

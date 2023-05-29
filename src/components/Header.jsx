@@ -26,7 +26,7 @@ function Header() {
       {isOpen && (
         <>
           <div
-            className="fixed inset-0 z-10 bg-black opacity-50"
+            className="sm:hidden fixed inset-0 z-10 bg-black opacity-50"
             onClick={toggleSidebar}
           ></div>
           <div className="sm:hidden absolute top-0 right-0 w-fit z-20">
