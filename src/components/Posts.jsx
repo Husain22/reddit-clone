@@ -19,7 +19,12 @@ function Posts() {
   const { data, error, isLoading } = useAxios(url);
 
   if (isLoading) {
-    return <div>Loading posts...</div>;
+    return (
+      <div className="loading my-32  mx-auto">
+        <div className="spinner"></div>
+        <div className="mt-4">Loading Posts...</div>
+      </div>
+    );
   }
 
   if (error) {

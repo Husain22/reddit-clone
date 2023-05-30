@@ -29,7 +29,7 @@ function Header() {
             className="sm:hidden fixed inset-0 z-10 bg-black opacity-50"
             onClick={toggleSidebar}
           ></div>
-          <div className="sm:hidden absolute top-0 right-0 w-fit z-20">
+          <div className="sm:hidden absolute top-0 right-0 w-64 min-w-fit z-20">
             <SideBar />
           </div>
         </>
