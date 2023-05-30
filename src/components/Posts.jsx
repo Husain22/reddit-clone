@@ -1,20 +1,22 @@
+import { useMemo } from "react";
 import useAxios from "../hooks/useAxios";
 import moment from "moment";
 import { useParams } from "react-router-dom";
 
 import { Post } from ".";
 
-let url = "";
 function Posts() {
   const { name, query } = useParams();
 
-  if (name && !query) {
-    url = `https://www.reddit.com/r/${name}.json`;
-  } else if (!name && !query) {
-    url = "https://www.reddit.com/r/Home.json";
-  } else {
-    url = `https://www.reddit.com/search.json?q=${query}`;
-  }
+  const url = useMemo(() => {
+    if (name && !query) {
+      return `https://www.reddit.com/r/${name}.json`;
+    } else if (!name && !query) {
+      return "https://www.reddit.com/r/Home.json";
+    } else {
+      return `https://www.reddit.com/search.json?q=${query}`;
+    }
+  }, [name, query]);
 
   const { data, error, isLoading } = useAxios(url);
 
